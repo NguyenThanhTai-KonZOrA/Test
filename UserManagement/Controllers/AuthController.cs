@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using UserManagement.Models.ViewModels;
-using UserManagement.Services.Interface;
+﻿using Application.Interface;
+using Application.Request;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UserManagement.Controllers
 {
