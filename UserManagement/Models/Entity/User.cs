@@ -4,6 +4,7 @@ namespace UserManagement.Models.Entity
 {
     public class User
     {
+        // Guid Id
         public Guid Id { get; set; }
         [StringLength(50)]
         public string UserName { get; set; }
