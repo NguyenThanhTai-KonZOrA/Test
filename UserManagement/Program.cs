@@ -1,10 +1,12 @@
+using Application.Implement;
+using Application.Interface;
+using Infrastructure.ApplicationDbContext;
+using Infrastructure.Data_Initializer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using UserManagement.Data;
 using UserManagement.Services.Implement;
-using UserManagement.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,14 +38,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    DbInitializer.Seed(dbContext);
+    DataInitializer.Seed(dbContext);
 }
 
 // Configure the HTTP request pipeline.
