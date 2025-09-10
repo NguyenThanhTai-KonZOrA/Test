@@ -45,7 +45,7 @@ namespace UserManagement.Services.Implement
                 ModifiedDate = DateTime.Now,
                 DistrictID = 0,
                 GroupID = "System",
-                Password = HashStringHelper.HashPassword(createUserRequest.Password),
+                Password = StringHashHelper.PasswordHash(createUserRequest.Password),
                 ProvinceID = 0,
                 Status = true,
                 Id = Guid.NewGuid()
@@ -110,7 +110,7 @@ namespace UserManagement.Services.Implement
             user.Address = userRequest.Address;
             user.Name = userRequest.Name;
             user.Phone = userRequest.Phone;
-            user.Password = HashStringHelper.HashPassword(userRequest.Password);
+            user.Password = StringHashHelper.PasswordHash(userRequest.Password);
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
 

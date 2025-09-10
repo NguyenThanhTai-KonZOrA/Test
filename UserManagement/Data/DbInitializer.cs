@@ -1,4 +1,5 @@
 ﻿using Common.Helper;
+using Microsoft.AspNetCore.Identity;
 using UserManagement.Models.Entity;
 
 namespace UserManagement.Data
@@ -13,7 +14,7 @@ namespace UserManagement.Data
                 {
                     Id = Guid.NewGuid(),
                     UserName = "admin",
-                    Password = HashStringHelper.HashPassword("123456"),
+                    Password = StringHashHelper.PasswordHash("123456"),
                     Address = "HCM",
                     CreatedBy = "System",
                     CreatedDate = DateTime.Now,
