@@ -43,6 +43,7 @@ namespace UserManagement.Controllers
         [HttpPost("createUser")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest createUserRequest)
         {
+            // add commnet
             var createUser = await _userService.CreateUser(createUserRequest);
             return Ok(createUser);
         }
