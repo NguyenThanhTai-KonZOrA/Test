@@ -29,6 +29,8 @@ namespace UserManagement.Controllers
         [HttpGet("gettAllUsers")]
         public async Task<IActionResult> GetAllUsers()
         {
+
+
             var users = await _userService.GetAllUsersAsync();
             return Ok(users);
         }
@@ -36,6 +38,8 @@ namespace UserManagement.Controllers
         [HttpPost("gettAllUsersFillter")]
         public async Task<IActionResult> GettAllUsersFillter([FromBody] UsersFillterRequest userFillterRequest)
         {
+
+
             var users = await _userService.GettAllUsersFillterAsync(userFillterRequest);
             return Ok(users);
         }
